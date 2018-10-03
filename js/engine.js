@@ -1,7 +1,7 @@
 function Library()
 {
   this.bookshelf = new Array();
-  // could also do this.bookshelf = []; ? still an object this way
+  // could also do this.bookshelf = []; ? still an object this way right?
 };
 
 Library.prototype.addBook = function(book)
@@ -42,15 +42,29 @@ Library.prototype.removeBookByTitle = function(title)
 Library.prototype.removeBookByAuthor = function(AuthorName)
 {
   // loop through books and search for an author that matches the input param
-  // delete any books that are by that author
-  // return true if book(s) were removed
+  for (var i=0; i<this.bookshelf.length; i++) {
+    // if any books found with author match
+    if (this.bookshelf[i].author === AuthorName) {
+        // delete any books that are by that author
+        this.bookshelf.splice(i, 1);
+        // return true if book(s) were removed
+        // CANT PUT RETURN TRUE HERE OR IT WILL ONLY REMOVE FIRST INSTANCE OF BOOK BY THAT AUTHOR - HOW DO I FIX???????????????????
+    }
+  }
   // return false if no books match
+  return false;
 };
 
 Library.prototype.getRandomBook = function()
 {
   // use Math.random to find a random book
+  var randomBook = this.bookshelf[Math.floor(Math.random() * this.bookshelf.length)];
   // return random book object (or null if there are no books)
+  if (randomBook) {
+    return randomBook;
+  } else {
+    return null;
+  }
 };
 
 Library.prototype.getBookByTitle = function(title)
@@ -98,11 +112,16 @@ document.addEventListener("DOMContentLoaded", function(e) {
   window.gLibrary.addBook(book3);
   window.gLibrary.addBook(book4);
   window.gLibrary.addBook(book5);
+  window.gLibrary.addBook(book6);
   // console.log(window.gLibrary, "<== current window.gLibrary");
 
 
-  window.gLibrary.removeBookByTitle("Harry Potter and the Goblet of Fire");
-  // console.log(window.gLibrary, "<== bookshelf after book removed");
+  // window.gLibrary.removeBookByTitle("Harry Potter and the Goblet of Fire");
+  // console.log(window.gLibrary, "<== bookshelf after book removed by title");
 
-  
+  // window.gLibrary.removeBookByAuthor("Dave Eggers");
+  // console.log(window.gLibrary, "<== bookshelf after book(s) removed by author");
+
+  // window.gLibrary.getRandomBook();
+
 });

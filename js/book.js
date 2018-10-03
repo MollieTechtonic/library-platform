@@ -25,4 +25,6 @@ var book4 = new Book("Murder on the Orient Express", "Agatha Christie", 210, "Ja
 
 var book5 = new Book("Eragon", "Christopher Paolini", 509, "August 26, 2003");
 
-// console.log(book1, book2, book3, book4, book5);
+var book6 = new Book ("What is the What", "Dave Eggers", 475, "October 25, 2006");
+
+var book7 = new Book ("The Glass Castle", "Jeannette Walls", 289, "March 8, 2005");
