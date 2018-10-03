@@ -4,6 +4,7 @@ function Library()
   // could also do this.bookshelf = []; ? still an object this way right?
 };
 
+// Done
 Library.prototype.addBook = function(book)
 {
   // check if book is already in my array(bookshelf)
@@ -19,6 +20,7 @@ Library.prototype.addBook = function(book)
   return true;
 };
 
+// Done
 Library.prototype.removeBookByTitle = function(title)
 {
   // loop through books and search for a title that matches the input param
@@ -39,22 +41,30 @@ Library.prototype.removeBookByTitle = function(title)
   return false;
 };
 
+// Done
 Library.prototype.removeBookByAuthor = function(AuthorName)
 {
+  var counter = 0;
   // loop through books and search for an author that matches the input param
   for (var i=0; i<this.bookshelf.length; i++) {
     // if any books found with author match
     if (this.bookshelf[i].author === AuthorName) {
         // delete any books that are by that author
         this.bookshelf.splice(i, 1);
-        // return true if book(s) were removed
-        // CANT PUT RETURN TRUE HERE OR IT WILL ONLY REMOVE FIRST INSTANCE OF BOOK BY THAT AUTHOR - HOW DO I FIX???????????????????
+        // common bug with splice: when an item is removed, the item at index i is not what WAS THE NEXT ITEM ON THE LIST. Therefore, each time an item is removed we need to decrement i back one to ensure we are checking EVERY book.
+        i--;
+        counter++;
     }
   }
-  // return false if no books match
-  return false;
+  // return true if book(s) removed; return false if no books match
+  if (counter !== 0) {
+    return true;
+  } else {
+    return false;
+  }
 };
 
+// Done
 Library.prototype.getRandomBook = function()
 {
   // use Math.random to find a random book
@@ -67,10 +77,23 @@ Library.prototype.getRandomBook = function()
   }
 };
 
-Library.prototype.getBookByTitle = function(title)
+// Done
+Library.prototype.getBookByTitle = function(titlePiece)
 {
-   // loop through all books for a match of the input title param
-   // return an array of all book objects that have a full or partial match (or empty array if none are found)
+  // declare a var for our title matches to push into
+  // outside our function for scoping reasons
+  var titleMatchArray = [];
+  // loop through all books for a match of the input title param
+  for (var i=0; i<this.bookshelf.length; i++) {
+    // checking to see the loop runs through each title
+    // console.log(this.bookshelf[i].title);
+     if (this.bookshelf[i].title.indexOf(titlePiece) !== -1) {
+       titleMatchArray.push(this.bookshelf[i]);
+     }
+   }
+  // return an array of all book objects that have a full or partial match (or empty array if none are found)
+  return titleMatchArray;
+
 };
 
 Library.prototype.getBookByAuthor = function(AuthorName)
@@ -113,6 +136,8 @@ document.addEventListener("DOMContentLoaded", function(e) {
   window.gLibrary.addBook(book4);
   window.gLibrary.addBook(book5);
   window.gLibrary.addBook(book6);
+  window.gLibrary.addBook(book7);
+  window.gLibrary.addBook(book8);
   // console.log(window.gLibrary, "<== current window.gLibrary");
 
 

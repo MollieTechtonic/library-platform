@@ -28,3 +28,5 @@ var book5 = new Book("Eragon", "Christopher Paolini", 509, "August 26, 2003");
 var book6 = new Book ("What is the What", "Dave Eggers", 475, "October 25, 2006");
 
 var book7 = new Book ("The Glass Castle", "Jeannette Walls", 289, "March 8, 2005");
+
+var book8 = new Book ("Other Book", "Dave Eggers", 475, "October 25, 2006");
