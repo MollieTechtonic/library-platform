@@ -1,11 +1,11 @@
 // not creating an instance here but on the fly inside engine.js
 
-function Book(title, author numPages, pubDate)
+function Book(title, author, numPages, pubDate)
 {
   this.title = title;
   this.author = author;
   this.numPages = numPages;
-  this.pubDate = pubDate;
+  this.pubDate = pubDate; //eventually use a date object
 
 }
 
@@ -13,4 +13,16 @@ function Book(title, author numPages, pubDate)
 Book.prototype.editBook = function(oBook)
 {
 
-}
+};
+
+var book1 = new Book("Harry Potter and the Goblet of Fire", "JK Rowling", 636, "July 8, 2000");
+
+var book2 = new Book("Choke", "Chuck Palahniuk", 304, "October 17, 2001");
+
+var book3 = new Book("A Heartbreaking Work of Staggering Genius", "Dave Eggers", 375, "March 14, 2000");
+
+var book4 = new Book("Murder on the Orient Express", "Agatha Christie", 210, "January 1, 1934");
+
+var book5 = new Book("Eragon", "Christopher Paolini", 509, "August 26, 2003");
+
+// console.log(book1, book2, book3, book4, book5);
