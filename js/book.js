@@ -30,3 +30,13 @@ var book6 = new Book ("What is the What", "Dave Eggers", 475, "October 25, 2006"
 var book7 = new Book ("The Glass Castle", "Jeannette Walls", 289, "March 8, 2005");
 
 var book8 = new Book ("Other Book", "Dave Eggers", 475, "October 25, 2006");
+
+
+// 3 more books and a book array to test addBooks function
+var book9 = new Book ("Random1", "JK Rowling", 475, "October 25, 2006");
+
+var book10 = new Book ("Random2", "Agatha Christie", 475, "October 25, 2006");
+
+var book11 = new Book ("Random3", "Dave Eggers", 475, "October 25, 2006");
+
+var bookArray = [book9, book10, book11];
