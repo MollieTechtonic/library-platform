@@ -1,9 +1,11 @@
 function Library()
 {
-  this.bookshelf = new Array();
-  // this.bookshelf = [];
-  // what is the benefit of calling new Array() instead of just []?
+  // this.bookshelf = new Array();
+  this.bookshelf = [];
+  // is there a benefit to calling new Array() instead of just []?
 };
+
+// add .trim() to remove whitespace from below functions??????
 
 Library.prototype.addBook = function(book) {
   // check if book is already in my array(bookshelf) using only lowercase
@@ -58,6 +60,7 @@ Library.prototype.removeBookByAuthor = function(authorName) {
 
 Library.prototype.getRandomBook = function() {
   // use Math.random to find a random book
+  // evaluates to a random # b/w 1 and length of bookshelf
   var randomBook = this.bookshelf[Math.floor(Math.random() * this.bookshelf.length)];
   // return random book object (or null if there are no books)
   if (randomBook) {
@@ -101,7 +104,6 @@ Library.prototype.getBookByAuthor = function(authorName) {
 };
 
 Library.prototype.addBooks = function(books) {
-  // take in multiple books in the form of an array of book objects and add them to the bookShelf array
   // found that "this" here points to my object -
   // inside my forEach, "this" points to the window -
   // therefore, declare var This = this in object context

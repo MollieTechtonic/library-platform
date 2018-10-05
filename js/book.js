@@ -17,6 +17,8 @@ Book.prototype.editBook = function(oBook)
   //    this.bookshelf[i].pubDate = oBook.pubDate;
   //  }
   // }
+  // REFACTOR TO MAKE SURE WE ARE NOT EDITING A TITLE TO MATCH ONE THAT IS ALREADY SET IN OUR LIBRARY!!!!!
+
 
 // this method will change any number of attributes, even 0
   this.title = oBook.title || this.title;
@@ -44,7 +46,7 @@ var book7 = new Book ("The Glass Castle", "Jeannette Walls", 289, "March 8, 2005
 var book8 = new Book ("The Prophet", "Kahlil Gibran", 107, "October 25, 1923");
 
 
-// 3 more books and a book array to test addBooks function
+// more books and a book array to test addBooks function
 var book9 = new Book ("Harry Potter and the Half Blood Prince", "JK Rowling", 652, "July 16, 2005");
 
 var book10 = new Book ("The Pale Horse", "Agatha Christie", 256, "November 6, 1961");
